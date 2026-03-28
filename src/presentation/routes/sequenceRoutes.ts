@@ -1,10 +1,10 @@
 import type { RouterType, IRequest } from 'itty-router'
-import { SequenceController } from '@/controllers/sequenceController'
-import type { Sequence } from '@/models/SequenceModel'
+import { ISequenceController } from '@/presentation/controllers/sequenceController'
+import { Sequence } from '@/domain/entities/Sequence'
 
 type SequenceInput = Omit<Sequence, 'id'>
 
-export const registerSequenceRoutes = (router: RouterType) => {
+export const registerSequenceRoutes = (router: RouterType, SequenceController : ISequenceController) => {
   // GET /api/sequences
   router.get('/sequences', () => {
     return SequenceController.getAll()
@@ -19,6 +19,7 @@ export const registerSequenceRoutes = (router: RouterType) => {
   // POST /api/sequences
   router.post('/sequences', async (request: IRequest) => {
     const body = (await request.json().catch(() => null)) as SequenceInput | null
+    if (!body) return;
     return SequenceController.create(body)
   })
 }
