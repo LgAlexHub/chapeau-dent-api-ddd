@@ -1,0 +1,38 @@
+# Dépendances
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build / output
+dist/
+public/
+.next/
+out/
+.vercel/
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Environnements
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Système / éditeur
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Divers
+coverage/
+.cache/
+.vercel
+.env*.local
