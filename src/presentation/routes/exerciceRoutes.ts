@@ -13,7 +13,7 @@ export const registerExerciceController = (
     return ExerciceController.getOne(slug);
   });
 
-  router.post("/exerices", async (request: IRequest) => {
+  router.post("/exercices", async (request: IRequest) => {
     const body = (await request.json().catch(() => null)) as ExerciceInput | null;
     return ExerciceController.create(body);
   });
